@@ -8,7 +8,9 @@
 ```
 yarn add react-native-deck-swiper
 ```
+
 OR
+
 ```
 npm install react-native-deck-swiper --save
 ```
@@ -17,10 +19,10 @@ npm install react-native-deck-swiper --save
 
 Version 2.0.0-beta is technically version 1.7.2 of the package. However, npm recommended that due to the change in ownership the version be bumped.
 
-| react-native-deck-swiper      | react-native      | description                                                            |
-| :---------------------------- | :---------------- | :--------------------------------------------------------------------- |
-| <= 2.0.3-beta                 | <= 0.56.x         | should install **react-native-view-overflow** and set **useViewOverflow** _true_ |
-| >= 2.0.4                      | => 0.57.x         | no longer requires react-native-view-overflow; **useViewOverflow removed** |
+| react-native-deck-swiper | react-native | description                                                                      |
+| :----------------------- | :----------- | :------------------------------------------------------------------------------- |
+| <= 2.0.3-beta            | <= 0.56.x    | should install **react-native-view-overflow** and set **useViewOverflow** _true_ |
+| >= 2.0.4                 | => 0.57.x    | no longer requires react-native-view-overflow; **useViewOverflow removed**       |
 
 ## Issues
 
@@ -29,18 +31,18 @@ With respect to bugfixes and further developments, please check the [To Do](http
 
 ## Overview
 
-* [x] Rotation animation
-* [x] Opacity animation
-* [x] Zoom animation
-* [x] Overlay labels
-* [x] Show next card while swiping
-* [x] Swipe event callbacks
-* [x] Trigger swipe animations programmatically
-* [x] Jump to a card index
-* [x] Swipe to previous card
-* [x] Underlaying cards offset
-* [x] Never-ending, animated deck when infinite property is true
-* [x] Swipe back to previous card with a custom animation
+- [x] Rotation animation
+- [x] Opacity animation
+- [x] Zoom animation
+- [x] Overlay labels
+- [x] Show next card while swiping
+- [x] Swipe event callbacks
+- [x] Trigger swipe animations programmatically
+- [x] Jump to a card index
+- [x] Swipe to previous card
+- [x] Underlaying cards offset
+- [x] Never-ending, animated deck when infinite property is true
+- [x] Swipe back to previous card with a custom animation
 
 ## Preview
 
@@ -51,32 +53,33 @@ With respect to bugfixes and further developments, please check the [To Do](http
 
 ### Card props
 
-| Props           | type           | description                                                          | required | default |
-| :-------------- | :------------- | :------------------------------------------------------------------- | :------- | :------ |
-| cards           | array          | array of data for the cards to be rendered                           | required |
-| renderCard      | func(cardData, cardIndex) | function to render the card based on the data                        | required |
-| keyExtractor    | func(cardData) | function to get the card's react key                                 |          | null    |
-| cardIndex       | number         | cardIndex to start with                                              |          | 0       |
-| infinite        | bool           | keep swiping indefinitely                                            |          | false   |
-| horizontalSwipe | bool           | enable/disable horizontal swiping                                    |          | true    |
-| verticalSwipe   | bool           | enable/disable vertical swiping                                      |          | true    |
-| showSecondCard  | bool           | enable/disable second card while swiping                             |          | true    |
-| stackSize       | number         | number of underlaying cards to show (showSecondCard must be enabled) |          | 1       |
+| Props             | type                      | description                                                          | required | default  |
+| :---------------- | :------------------------ | :------------------------------------------------------------------- | :------- | :------- |
+| cards             | array                     | array of data for the cards to be rendered                           | required |
+| renderCard        | func(cardData, cardIndex) | function to render the card based on the data                        |          | required |
+| keyExtractor      | func(cardData)            | function to get the card's react key                                 |          | null     |
+| cardIndex         | number                    | cardIndex to start with                                              |          | 0        |
+| infinite          | bool                      | keep swiping indefinitely                                            |          | false    |
+| horizontalSwipe   | bool                      | enable/disable horizontal swiping                                    |          | true     |
+| verticalSwipe     | bool                      | enable/disable vertical swiping                                      |          | true     |
+| showSecondCard    | bool                      | enable/disable second card while swiping                             |          | true     |
+| enableInnerScroll | bool                      | enable/disable vertical scroll inside the card                       |          | false    |
+| stackSize         | number                    | number of underlaying cards to show (showSecondCard must be enabled) |          | 1        |
 
 ### Event callbacks
 
 | Props             | type   | description                                                                           | default |
-| :---------------- | :----- | :------------------------------------------------------------------------------------ | :------ |
-| onSwipedAll       | func   | function to be called when all cards have been swiped                                 |         | () => {} |
+| :---------------- | :----- | :------------------------------------------------------------------------------------ | :------ | ----------------- |
+| onSwipedAll       | func   | function to be called when all cards have been swiped                                 |         | () => {}          |
 | onSwiped          | func   | function to be called when a card is swiped. it receives the swiped card index        |         | (cardIndex) => {} |
-| onSwipedAborted   | func   | function to be called when a card is released before reaching the threshold           |         | () => {} |
+| onSwipedAborted   | func   | function to be called when a card is released before reaching the threshold           |         | () => {}          |
 | onSwipedLeft      | func   | function to be called when a card is swiped left. it receives the swiped card index   |         | (cardIndex) => {} |
 | onSwipedRight     | func   | function to be called when a card is swiped right. it receives the swiped card index  |         | (cardIndex) => {} |
 | onSwipedTop       | func   | function to be called when a card is swiped top. it receives the swiped card index    |         | (cardIndex) => {} |
 | onSwipedBottom    | func   | function to be called when a card is swiped bottom. it receives the swiped card index |         | (cardIndex) => {} |
-| onSwiping         | func   | function to be called when a card is being moved. it receives X and Y positions       |         | (x, y) => {} |
-| dragStart         | func   | function to be called when drag start                                       |        |
-| dragEnd           | func   | function to be called when drag end
+| onSwiping         | func   | function to be called when a card is being moved. it receives X and Y positions       |         | (x, y) => {}      |
+| dragStart         | func   | function to be called when drag start                                                 |         |
+| dragEnd           | func   | function to be called when drag end                                                   |
 | onTapCard         | func   | function to be called when tapping a card. it receives the tapped card index          |         | (cardIndex) => {} |
 | onTapCardDeadZone | number | maximum amount of movement before a tap is no longer recognized as a tap              | 5       |
 
@@ -252,42 +255,43 @@ Make sure you set showSecondCard={false} for smoother and proper transitions whi
 
 ### Style props
 
-| Props                | type   | description                                        | default   |
-| :------------------- | :----- | :------------------------------------------------- | :-------- |
-| backgroundColor      | string | background color for the view containing the cards | '#4FD0E9' |
-| marginTop            | number | marginTop for the swiper container                 | 0         |
-| marginBottom         | number | marginBottom for the swiper container              | 0         |
-| cardVerticalMargin   | number | card vertical margin                               | 60        |
-| cardHorizontalMargin | number | card horizontal margin                             | 20        |
-| childrenOnTop        | bool   | render children on top or not                      | false     |
-| cardStyle            | node   | override swipable card style                       | {}        |
-| containerStyle       | node   | overrides for the containing <View> style          | {}        |
-| pointerEvents        | string | pointerEvents prop for the containing <View>       | 'auto'    |
-| useViewOverflow      | bool   | use ViewOverflow instead of View for the Swiper component |  true     |
+| Props                | type   | description                                               | default   |
+| :------------------- | :----- | :-------------------------------------------------------- | :-------- |
+| backgroundColor      | string | background color for the view containing the cards        | '#4FD0E9' |
+| marginTop            | number | marginTop for the swiper container                        | 0         |
+| marginBottom         | number | marginBottom for the swiper container                     | 0         |
+| cardVerticalMargin   | number | card vertical margin                                      | 60        |
+| cardHorizontalMargin | number | card horizontal margin                                    | 20        |
+| childrenOnTop        | bool   | render children on top or not                             | false     |
+| cardStyle            | node   | override swipable card style                              | {}        |
+| containerStyle       | node   | overrides for the containing <View> style                 | {}        |
+| pointerEvents        | string | pointerEvents prop for the containing <View>              | 'auto'    |
+| useViewOverflow      | bool   | use ViewOverflow instead of View for the Swiper component | true      |
 
 ### Swipe back method info
+
 ## Method
 
-| Name                | type   | description                                        |
-| :------------------- | :----- | :------------------------------------------------- |
-| swipeBack       | callback                       | swipe back into deck last swiped card. stacksize should be 2 cards or more |
+| Name      | type     | description                                                                |
+| :-------- | :------- | :------------------------------------------------------------------------- |
+| swipeBack | callback | swipe back into deck last swiped card. stacksize should be 2 cards or more |
 
 ## Props
 
-| Props                | type   | description                                        | default   |
-| :------------------- | :----- | :------------------------------------------------- | :-------- |
-| previousCardDefaultPositionX | number | Animation start position oX when card swipes back into deck | -width |
+| Props                        | type   | description                                                 | default |
+| :--------------------------- | :----- | :---------------------------------------------------------- | :------ |
+| previousCardDefaultPositionX | number | Animation start position oX when card swipes back into deck | -width  |
 | previousCardDefaultPositionY | number | Animation start position oY when card swipes back into deck | -height |
-| stackAnimationFriction | number | spring animation friction (bounciness)                 | 7       |
-| stackAnimationTension  | number | spring animation tension (speed)                       | 40      |
-| stackAnimationTension  | number | spring animation tension (speed)                       | 40      |
-| swipeBackCard  | bool | renders swipe back card, in order to animate it                       | false      |
+| stackAnimationFriction       | number | spring animation friction (bounciness)                      | 7       |
+| stackAnimationTension        | number | spring animation tension (speed)                            | 40      |
+| stackAnimationTension        | number | spring animation tension (speed)                            | 40      |
+| swipeBackCard                | bool   | renders swipe back card, in order to animate it             | false   |
 
 ### Methods
 
 To trigger imperative animations, you can use a reference to the Swiper component.
 
-| Name           | arguments                      | description                   |
+| Name            | arguments                      | description                   |
 | :-------------- | :----------------------------- | :---------------------------- |
 | swipeLeft       | mustDecrementCardIndex = false | swipe left to the next card   |
 | swipeRight      | mustDecrementCardIndex = false | swipe right to the next card  |
@@ -332,7 +336,7 @@ Demo inside the [Example Folder](https://github.com/webraptor/react-native-deck-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#F5FCFF",
   },
   card: {
     flex: 1,
@@ -340,13 +344,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#E8E8E8",
     justifyContent: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
   },
   text: {
     textAlign: "center",
     fontSize: 50,
-    backgroundColor: "transparent"
-  }
+    backgroundColor: "transparent",
+  },
 });
 ```
 
@@ -376,6 +380,7 @@ By making sure that external changes on the cardIndex match those the swiper per
 If you've encountered issues while running the example app located in the _example_ folder, try the following steps:
 
 **If you're using yarn**
+
 1. rm -rf node_modules && rm yarn.lock
 2. yarn cache clean
 3. yarn
@@ -383,6 +388,7 @@ If you've encountered issues while running the example app located in the _examp
 5. react-native run-android
 
 **If you're using npm**
+
 1. rm -rf node_modules && rm package-lock.json
 2. npm cache clean --force
 3. npm install
