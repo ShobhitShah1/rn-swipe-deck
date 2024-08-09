@@ -1,5 +1,5 @@
-declare module 'react-native-deck-swiper' {
-  import {StyleProp, ViewStyle} from 'react-native';
+declare module "react-native-deck-swiper" {
+  import { StyleProp, ViewStyle } from "react-native";
 
   export interface SwiperProps<T> {
     animateCardOpacity?: boolean;
@@ -12,6 +12,7 @@ declare module 'react-native-deck-swiper' {
     cardVerticalMargin?: number;
     childrenOnTop?: boolean;
     containerStyle?: object;
+    disableVerticalCapture?: boolean;
     disableBottomSwipe?: boolean;
     disableLeftSwipe?: boolean;
     disableRightSwipe?: boolean;
