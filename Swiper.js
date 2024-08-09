@@ -417,7 +417,8 @@ class Swiper extends Component {
       this.props.onSwipedLeft,
       -this.props.horizontalThreshold,
       0,
-      mustDecrementCardIndex
+      mustDecrementCardIndex,
+      true
     );
   };
 
@@ -426,7 +427,8 @@ class Swiper extends Component {
       this.props.onSwipedRight,
       this.props.horizontalThreshold,
       0,
-      mustDecrementCardIndex
+      mustDecrementCardIndex,
+      true
     );
   };
 
@@ -435,7 +437,8 @@ class Swiper extends Component {
       this.props.onSwipedTop,
       0,
       -this.props.verticalThreshold,
-      mustDecrementCardIndex
+      mustDecrementCardIndex,
+      true
     );
   };
 
@@ -444,7 +447,8 @@ class Swiper extends Component {
       this.props.onSwipedBottom,
       0,
       this.props.verticalThreshold,
-      mustDecrementCardIndex
+      mustDecrementCardIndex,
+      true
     );
   };
 
@@ -452,7 +456,8 @@ class Swiper extends Component {
     onSwiped,
     x = this._animatedValueX,
     y = this._animatedValueY,
-    mustDecrementCardIndex = false
+    mustDecrementCardIndex = false,
+    isViaRef = false
   ) => {
     this.setState({ panResponderLocked: true });
     this.animateStack();
@@ -475,7 +480,7 @@ class Swiper extends Component {
         if (mustDecrementCardIndex) {
           this.decrementCardIndex(onSwiped);
         } else {
-          this.incrementCardIndex(onSwiped);
+          this.incrementCardIndex(onSwiped, isViaRef);
         }
       });
     });
@@ -548,13 +553,13 @@ class Swiper extends Component {
     }
   };
 
-  incrementCardIndex = (onSwiped) => {
+  incrementCardIndex = (onSwiped, isViaRef = false) => {
     const { firstCardIndex } = this.state;
     const { infinite } = this.props;
     let newCardIndex = firstCardIndex + 1;
     let swipedAllCards = false;
 
-    this.onSwipedCallbacks(onSwiped);
+    this.onSwipedCallbacks(onSwiped, isViaRef);
 
     const allSwipedCheck = () => newCardIndex === this.props.cards.length;
 
@@ -604,14 +609,15 @@ class Swiper extends Component {
     return stackPositionsAndScales;
   };
 
-  onSwipedCallbacks = (swipeDirectionCallback) => {
+  onSwipedCallbacks = (swipeDirectionCallback, isViaRef = false) => {
     const previousCardIndex = this.state.firstCardIndex;
     this.props.onSwiped(previousCardIndex, this.props.cards[previousCardIndex]);
     this.setState(this.rebuildStackValues);
     if (swipeDirectionCallback) {
       swipeDirectionCallback(
         previousCardIndex,
-        this.props.cards[previousCardIndex]
+        this.props.cards[previousCardIndex],
+        isViaRef
       );
     }
   };
