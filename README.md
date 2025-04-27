@@ -1,4 +1,8 @@
-## react-native-deck-swiper
+## rn-swipe-deck
+
+> **Originally created by [webraptor](https://github.com/webraptor).**
+> This project is a fork of [react-native-deck-swiper](https://github.com/webraptor/react-native-deck-swiper). Full credit to the original author.
+> This fork introduces some updates and enhancements.
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 [![npm version](https://badge.fury.io/js/react-native-deck-swiper.svg)](https://badge.fury.io/js/react-native-deck-swiper)
@@ -6,20 +10,20 @@
 ## Installation
 
 ```
-yarn add react-native-deck-swiper
+yarn add rn-swipe-deck
 ```
 
 OR
 
 ```
-npm install react-native-deck-swiper --save
+npm install rn-swipe-deck --save
 ```
 
 ## Versions info
 
 Version 2.0.0-beta is technically version 1.7.2 of the package. However, npm recommended that due to the change in ownership the version be bumped.
 
-| react-native-deck-swiper | react-native | description                                                                      |
+| rn-swipe-deck | react-native | description                                                                      |
 | :----------------------- | :----------- | :------------------------------------------------------------------------------- |
 | <= 2.0.3-beta            | <= 0.56.x    | should install **react-native-view-overflow** and set **useViewOverflow** _true_ |
 | >= 2.0.4                 | => 0.57.x    | no longer requires react-native-view-overflow; **useViewOverflow removed**       |
