@@ -1,6 +1,12 @@
-declare module "react-native-deck-swiper" {
-  import { StyleProp, ViewStyle } from "react-native";
+import React from "react";
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 
+declare module "rn-swipe-deck" {
   export interface SwiperProps<T> {
     animateCardOpacity?: boolean;
     animateOverlayLabelsOpacity?: boolean;
@@ -57,7 +63,7 @@ declare module "react-native-deck-swiper" {
     pointerEvents?: string;
     previousCardDefaultPositionX?: number;
     previousCardDefaultPositionY?: number;
-    renderCard: (cardData: T, cardIndex: number) => JSX.Element | null;
+    renderCard: (cardData: T, cardIndex: number) => React.ReactNode | null;
     secondCardZoom?: number;
     showSecondCard?: boolean;
     stackAnimationFriction?: number;
