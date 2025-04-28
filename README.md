@@ -48,11 +48,6 @@ With respect to bugfixes and further developments, please check the [To Do](http
 - [x] Never-ending, animated deck when infinite property is true
 - [x] Swipe back to previous card with a custom animation
 
-## Preview
-
-![App preview](/animation.gif)
-![App preview2](/animation2.gif)
-
 ## Props
 
 ### Card props
